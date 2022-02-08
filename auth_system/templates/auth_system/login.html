@@ -1,0 +1,23 @@
+{% extends 'auth_system/main.html' %}
+{% block content %}
+{% for message in messages %}
+<p id="">{{message}}</p>
+{% endfor %}
+<form method="POST" action="">
+	{% csrf_token %}
+	<div class="mx-5 my-4 col-xs-4"> UserName : 
+
+	<input type="text" name="username" placeholder="Username..." class="form-control "></div>
+	<div class="mx-5 my-4 col-xs-4"> Password : 
+		
+	<input type="text" name="password" placeholder="Password..." class="form-control"></div>
+	<br>
+	<div class="my-4">
+	<button class="btn btn-primary"type="submit" >Submit</button>
+</div>
+</form>
+<br>
+<div class="mx-5 col-xs-4">
+<p>Don't have an account?<a style="color: blue;"href="{% url 'register' %}"> Register here</a></p>
+</div>
+{% endblock %}
